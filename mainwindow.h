@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QSqlTableModel>
 #include <QSqlQuery>
+#include <QDateTime>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -29,6 +30,8 @@ private slots:
     void on_DeleteButton_clicked();
 
     void on_SQLTableView_clicked(const QModelIndex &index);
+
+    void on_drop_database_button_clicked();
 
 private:
     Ui::MainWindow *ui;
