@@ -11,7 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QDoubleSpinBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -21,7 +21,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
@@ -34,21 +33,21 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QSpacerItem *horizontalSpacer_2;
+    QTableView *SQLTableView;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_2;
     QFormLayout *formLayout;
     QLabel *name_label;
     QLineEdit *name_Edit;
     QLabel *label_2;
-    QDoubleSpinBox *doubleSpinBox;
+    QLabel *label;
+    QLineEdit *calories_edit;
+    QLineEdit *weight_Edit;
+    QComboBox *select_button;
     QPushButton *AddButton;
     QPushButton *DeleteButton;
+    QPushButton *view_table_button;
     QPushButton *drop_database_button;
-    QSpacerItem *verticalSpacer_2;
-    QSpacerItem *verticalSpacer;
-    QTableView *SQLTableView;
-    QSpacerItem *horizontalSpacer;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -56,17 +55,19 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(921, 637);
+        MainWindow->resize(1024, 655);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName("gridLayout");
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        SQLTableView = new QTableView(centralwidget);
+        SQLTableView->setObjectName("SQLTableView");
 
-        gridLayout->addItem(horizontalSpacer_2, 1, 3, 1, 1);
+        gridLayout->addWidget(SQLTableView, 0, 1, 1, 1);
 
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
+        groupBox->setMaximumSize(QSize(300, 16777215));
         verticalLayout_2 = new QVBoxLayout(groupBox);
         verticalLayout_2->setObjectName("verticalLayout_2");
         formLayout = new QFormLayout();
@@ -86,13 +87,31 @@ public:
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
-        doubleSpinBox = new QDoubleSpinBox(groupBox);
-        doubleSpinBox->setObjectName("doubleSpinBox");
+        label = new QLabel(groupBox);
+        label->setObjectName("label");
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, doubleSpinBox);
+        formLayout->setWidget(2, QFormLayout::LabelRole, label);
+
+        calories_edit = new QLineEdit(groupBox);
+        calories_edit->setObjectName("calories_edit");
+
+        formLayout->setWidget(2, QFormLayout::FieldRole, calories_edit);
+
+        weight_Edit = new QLineEdit(groupBox);
+        weight_Edit->setObjectName("weight_Edit");
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, weight_Edit);
 
 
         verticalLayout_2->addLayout(formLayout);
+
+        select_button = new QComboBox(groupBox);
+        select_button->addItem(QString());
+        select_button->addItem(QString());
+        select_button->addItem(QString());
+        select_button->setObjectName("select_button");
+
+        verticalLayout_2->addWidget(select_button);
 
         AddButton = new QPushButton(groupBox);
         AddButton->setObjectName("AddButton");
@@ -104,35 +123,23 @@ public:
 
         verticalLayout_2->addWidget(DeleteButton);
 
+        view_table_button = new QPushButton(groupBox);
+        view_table_button->setObjectName("view_table_button");
+
+        verticalLayout_2->addWidget(view_table_button);
+
         drop_database_button = new QPushButton(groupBox);
         drop_database_button->setObjectName("drop_database_button");
 
         verticalLayout_2->addWidget(drop_database_button);
 
 
-        gridLayout->addWidget(groupBox, 1, 1, 1, 1);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer_2, 0, 2, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 3, 2, 1, 1);
-
-        SQLTableView = new QTableView(centralwidget);
-        SQLTableView->setObjectName("SQLTableView");
-
-        gridLayout->addWidget(SQLTableView, 1, 2, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer, 1, 0, 1, 1);
+        gridLayout->addWidget(groupBox, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 921, 23));
+        menubar->setGeometry(QRect(0, 0, 1024, 23));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -149,8 +156,14 @@ public:
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "GroupBox", nullptr));
         name_label->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Weight", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Calories", nullptr));
+        select_button->setItemText(0, QCoreApplication::translate("MainWindow", "All", nullptr));
+        select_button->setItemText(1, QCoreApplication::translate("MainWindow", "Calories", nullptr));
+        select_button->setItemText(2, QCoreApplication::translate("MainWindow", "Weight", nullptr));
+
         AddButton->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
         DeleteButton->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
+        view_table_button->setText(QCoreApplication::translate("MainWindow", "View Table", nullptr));
         drop_database_button->setText(QCoreApplication::translate("MainWindow", "Drop DataBase", nullptr));
     } // retranslateUi
 
