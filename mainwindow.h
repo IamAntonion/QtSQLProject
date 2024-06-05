@@ -3,7 +3,10 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
-#include <QtSql>
+#include <QSqlDatabase>
+#include <QDebug>
+#include <QSqlTableModel>
+#include <QSqlQuery>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,11 +24,19 @@ public:
 
 private slots:
 
+    void on_AddButton_clicked();
+
+    void on_DeleteButton_clicked();
+
+    void on_SQLTableView_clicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
 
     QSqlDatabase _db;
     QSqlQuery *_db_query;
     QSqlTableModel *_db_model;
+
+    int _number_row;            // номер активной строки
 };
 #endif // MAINWINDOW_H
