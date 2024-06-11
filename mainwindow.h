@@ -3,11 +3,10 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
-#include <QSqlDatabase>
 #include <QDebug>
-#include <QSqlTableModel>
-#include <QSqlQuery>
 #include <QDateTime>
+
+#include <database.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -33,10 +32,15 @@ private slots:
 
     void on_drop_database_button_clicked();
 
+    void on_select_button_activated(int index);
+
+    void on_view_table_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 
-    QSqlDatabase _db;
+    database::database *_db_object;
+    QSqlDatabase *_db;
     QSqlQuery *_db_query;
     QSqlTableModel *_db_model;
 

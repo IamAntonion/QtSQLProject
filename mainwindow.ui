@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>921</width>
-    <height>637</height>
+    <width>1024</width>
+    <height>655</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,21 +15,17 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="3">
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
+    <item row="0" column="1">
+     <widget class="QTableView" name="SQLTableView"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="maximumSize">
        <size>
-        <width>40</width>
-        <height>20</height>
+        <width>300</width>
+        <height>16777215</height>
        </size>
       </property>
-     </spacer>
-    </item>
-    <item row="1" column="1">
-     <widget class="QGroupBox" name="groupBox">
       <property name="title">
        <string>GroupBox</string>
       </property>
@@ -53,10 +49,39 @@
            </property>
           </widget>
          </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Calories</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="calories_edit"/>
+         </item>
          <item row="1" column="1">
-          <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+          <widget class="QLineEdit" name="weight_Edit"/>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QComboBox" name="select_button">
+         <item>
+          <property name="text">
+           <string>All</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Calories</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Weight</string>
+          </property>
+         </item>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="AddButton">
@@ -73,6 +98,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="view_table_button">
+         <property name="text">
+          <string>View Table</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="drop_database_button">
          <property name="text">
           <string>Drop DataBase</string>
@@ -82,48 +114,6 @@
       </layout>
      </widget>
     </item>
-    <item row="0" column="2">
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="3" column="2">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="1" column="2">
-     <widget class="QTableView" name="SQLTableView"/>
-    </item>
-    <item row="1" column="0">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>10</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -131,7 +121,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>921</width>
+     <width>1024</width>
      <height>23</height>
     </rect>
    </property>
