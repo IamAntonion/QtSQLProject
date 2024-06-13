@@ -2,7 +2,7 @@
 #define PAINT_GRAPH_H
 
 #include <QPainter>
-#include <QGraphicsItem>
+#include <QGraphicsScene>
 
 namespace paint_graph {
 
@@ -10,6 +10,10 @@ class paint_graph
 {
 public:
     paint_graph();
+
+    QGraphicsScene* get_scene();
+private:
+    QGraphicsScene *_scene;
 };
 
 }

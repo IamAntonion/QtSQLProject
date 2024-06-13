@@ -6,11 +6,13 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QTableWidgetItem>
+#include <QGraphicsScene>
 
 #include <queue>
 #include <iostream>
 
-#include <database.h>
+#include "database.h"
+#include "paint_graph.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -52,9 +54,14 @@ private:
     QSqlQuery *_db_query;
     QSqlTableModel *_db_model;
 
+    paint_graph::paint_graph *_scene_object;
+    QGraphicsScene *_scene;
+
     int _number_row;            // номер активной строки
     std::queue<QString> _values_row;
     int _max_value;
     int _min_value;
+
+    void sort_by_name();
 };
 #endif // MAINWINDOW_H
