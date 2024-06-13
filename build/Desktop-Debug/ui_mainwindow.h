@@ -40,14 +40,21 @@ public:
     QLabel *name_label;
     QLineEdit *name_Edit;
     QLabel *label_2;
+    QLineEdit *weight_Edit;
     QLabel *label;
     QLineEdit *calories_edit;
-    QLineEdit *weight_Edit;
+    QPushButton *take_number_button;
+    QLabel *label_3;
+    QLabel *mmax_value_lable;
+    QLabel *max_value;
+    QLabel *min_valu_lable;
+    QLabel *min_value;
     QComboBox *select_button;
     QPushButton *AddButton;
     QPushButton *DeleteButton;
     QPushButton *view_table_button;
     QPushButton *drop_database_button;
+    QPushButton *get_values_row;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -55,7 +62,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1024, 655);
+        MainWindow->resize(1024, 809);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
@@ -63,7 +70,7 @@ public:
         SQLTableView = new QTableView(centralwidget);
         SQLTableView->setObjectName("SQLTableView");
 
-        gridLayout->addWidget(SQLTableView, 0, 1, 1, 1);
+        gridLayout->addWidget(SQLTableView, 0, 1, 1, 2);
 
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
@@ -87,6 +94,11 @@ public:
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
+        weight_Edit = new QLineEdit(groupBox);
+        weight_Edit->setObjectName("weight_Edit");
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, weight_Edit);
+
         label = new QLabel(groupBox);
         label->setObjectName("label");
 
@@ -97,10 +109,35 @@ public:
 
         formLayout->setWidget(2, QFormLayout::FieldRole, calories_edit);
 
-        weight_Edit = new QLineEdit(groupBox);
-        weight_Edit->setObjectName("weight_Edit");
+        take_number_button = new QPushButton(groupBox);
+        take_number_button->setObjectName("take_number_button");
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, weight_Edit);
+        formLayout->setWidget(3, QFormLayout::LabelRole, take_number_button);
+
+        label_3 = new QLabel(groupBox);
+        label_3->setObjectName("label_3");
+
+        formLayout->setWidget(3, QFormLayout::FieldRole, label_3);
+
+        mmax_value_lable = new QLabel(groupBox);
+        mmax_value_lable->setObjectName("mmax_value_lable");
+
+        formLayout->setWidget(5, QFormLayout::LabelRole, mmax_value_lable);
+
+        max_value = new QLabel(groupBox);
+        max_value->setObjectName("max_value");
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, max_value);
+
+        min_valu_lable = new QLabel(groupBox);
+        min_valu_lable->setObjectName("min_valu_lable");
+
+        formLayout->setWidget(4, QFormLayout::LabelRole, min_valu_lable);
+
+        min_value = new QLabel(groupBox);
+        min_value->setObjectName("min_value");
+
+        formLayout->setWidget(4, QFormLayout::FieldRole, min_value);
 
 
         verticalLayout_2->addLayout(formLayout);
@@ -133,6 +170,11 @@ public:
 
         verticalLayout_2->addWidget(drop_database_button);
 
+        get_values_row = new QPushButton(groupBox);
+        get_values_row->setObjectName("get_values_row");
+
+        verticalLayout_2->addWidget(get_values_row);
+
 
         gridLayout->addWidget(groupBox, 0, 0, 1, 1);
 
@@ -157,6 +199,12 @@ public:
         name_label->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Weight", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Calories", nullptr));
+        take_number_button->setText(QCoreApplication::translate("MainWindow", "Take Number", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        mmax_value_lable->setText(QCoreApplication::translate("MainWindow", "Max Value", nullptr));
+        max_value->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        min_valu_lable->setText(QCoreApplication::translate("MainWindow", "Min Value", nullptr));
+        min_value->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         select_button->setItemText(0, QCoreApplication::translate("MainWindow", "All", nullptr));
         select_button->setItemText(1, QCoreApplication::translate("MainWindow", "Calories", nullptr));
         select_button->setItemText(2, QCoreApplication::translate("MainWindow", "Weight", nullptr));
@@ -165,6 +213,7 @@ public:
         DeleteButton->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
         view_table_button->setText(QCoreApplication::translate("MainWindow", "View Table", nullptr));
         drop_database_button->setText(QCoreApplication::translate("MainWindow", "Drop DataBase", nullptr));
+        get_values_row->setText(QCoreApplication::translate("MainWindow", "Get Values Row", nullptr));
     } // retranslateUi
 
 };

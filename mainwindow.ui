@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>655</height>
+    <height>809</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
+    <item row="0" column="1" colspan="2">
      <widget class="QTableView" name="SQLTableView"/>
     </item>
     <item row="0" column="0">
@@ -49,6 +49,9 @@
            </property>
           </widget>
          </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="weight_Edit"/>
+         </item>
          <item row="2" column="0">
           <widget class="QLabel" name="label">
            <property name="text">
@@ -59,8 +62,47 @@
          <item row="2" column="1">
           <widget class="QLineEdit" name="calories_edit"/>
          </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="weight_Edit"/>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="take_number_button">
+           <property name="text">
+            <string>Take Number</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="mmax_value_lable">
+           <property name="text">
+            <string>Max Value</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLabel" name="max_value">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="min_valu_lable">
+           <property name="text">
+            <string>Min Value</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLabel" name="min_value">
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -108,6 +150,13 @@
         <widget class="QPushButton" name="drop_database_button">
          <property name="text">
           <string>Drop DataBase</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="get_values_row">
+         <property name="text">
+          <string>Get Values Row</string>
          </property>
         </widget>
        </item>

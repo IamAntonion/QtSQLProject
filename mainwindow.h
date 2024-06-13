@@ -5,6 +5,10 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QDateTime>
+#include <QTableWidgetItem>
+
+#include <queue>
+#include <iostream>
 
 #include <database.h>
 
@@ -36,6 +40,10 @@ private slots:
 
     void on_view_table_button_clicked();
 
+    void on_take_number_button_clicked();
+
+    void on_get_values_row_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -45,5 +53,8 @@ private:
     QSqlTableModel *_db_model;
 
     int _number_row;            // номер активной строки
+    std::queue<QString> _values_row;
+    int _max_value;
+    int _min_value;
 };
 #endif // MAINWINDOW_H
